@@ -11,4 +11,11 @@ class Userform(forms.ModelForm):
 
 
 
+class ProfileAndDashboardform(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ['PhoneNo','Institute_Uni','events']
+
+
 
