@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 # Create your views here.
 from django.contrib.auth import login,logout,authenticate
-
+from events.models import Events,Profile
 def index(request):
     return render(request,'index.html')
 
@@ -22,6 +22,8 @@ def register(request):
         u = authenticate(username=username,password=password)
         login(request,u)
         full_name = user.get_full_name
-        return render(request,'dashboard.html',{'full_name':full_name})
+        e = Events.objects.all()
+        return render(request,'dashboard.html',{'full_name':full_name,'e':e})
+
 
 
