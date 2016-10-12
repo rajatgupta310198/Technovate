@@ -26,4 +26,17 @@ def register(request):
         return render(request,'dashboard.html',{'full_name':full_name,'e':e})
 
 
+def UpdateAndCreateProfile(request):
+    if request.method == 'POST':
+        p = Profile()
+        p.Institute_Uni = request.POST['institute_uni']
+        p.PhoneNo = request.POST['phoneno']
+        p.save()
+        e = Events.objects.filter(pk=request.POST['event'])
+        p.events.add()
+        p.save()
+        return render(request,'index.html')
+
+    
+
 
