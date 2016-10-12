@@ -22,6 +22,7 @@ def register(request):
         user.save()
         u = authenticate(username=username,password=password)
         login(request,u)
-        return render(request,'dashboard.html',{'u':u})
+        full_name = user.get_full_name
+        return render(request,'dashboard.html',{'full_name':full_name})
 
 
