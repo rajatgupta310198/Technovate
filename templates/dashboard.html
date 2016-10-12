@@ -5,6 +5,9 @@
     <title>User Dashboard</title>
 </head>
 <body>
-
+  {% csrf_token %}
+{% u.get_full_name() %}
+<br>
+Success
 </body>
 </html>
