@@ -5,10 +5,8 @@
     <title>User Dashboard</title>
 </head>
 <body>
-  {% csrf_token %}
-{{ full_name }}
-<br>
-Success
+
+ {% if user.is_authenticated %}
   <form method="post">
       <label for="#institute_uni">Institute or University</label>
       <input type="text" name="institute_uni" id="institute_uni"/><br>
@@ -16,11 +14,14 @@ Success
       <input type="text" name="phoneno" id="phone_no"/><br>
        <select>
            {% for a in e %}
-             {% csrf_token %}
+
               <option name="{{a.EventName}}">{{a.EventName}}</option>
            {% endfor %}
        </select>
     <input type="submit" value="save"/>
   </form>
+ {% else %}
+    Not logged in  go to <a href="{% url 'join.html' %}">Join</a>
+{% endif %}
 </body>
 </html>
