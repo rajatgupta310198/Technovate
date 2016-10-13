@@ -6,7 +6,7 @@
 </head>
 <body>
   <div>
-      <form>
+      <form action="{% url 'login' %}" method="post">
       <label for="#username">Username :</label>
       <input type="text" name="username" id="username"/><br>
       <label for="#password">Password :</label>
