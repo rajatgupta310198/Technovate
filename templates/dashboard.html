@@ -12,12 +12,9 @@
       <input type="text" name="institute_uni" id="institute_uni"/><br>
       <label for="#phone_no">Phone Number </label>
       <input type="text" name="phoneno" id="phone_no"/><br>
-       <select>
-           {% for a in e %}
-
-              <option name="{{a.EventName}}">{{a.EventName}}</option>
-           {% endfor %}
-       </select>
+       {% for event in events %}
+         <input type="radio" id="{{ event.id }}" name="event"/> {{  event.get_event_name}} <br>
+      {% endfor %}
     <input type="submit" value="save"/>
   </form>
  {% else %}
