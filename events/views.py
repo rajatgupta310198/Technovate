@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 # Create your views here.
@@ -56,9 +56,14 @@ def LOG_IN(request):
         if user is not None:
             if user.is_active:
                 login(request,user)
-                e = Events.objects.all()
-                return render(request,'dashboard.html',{'e':e})
+                events = Events.objects.all()
+                return render(request,'dashboard.html',{'events':events})
         else:
             error_mgs  = "Invalid credentials"
             messages.error(request, "Error")
             return redirect('/join',{'error_msg': error_mgs})
+
+
+def LOG_OUT(request):
+    logout(request)
+    return redirect('/')
