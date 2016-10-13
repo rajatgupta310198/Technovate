@@ -10,6 +10,9 @@ def index(request):
 def join(request):
     return render(request,'join.html')
 
+def dashboard(request):
+    return render(request,'dashboard.html')
+
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
