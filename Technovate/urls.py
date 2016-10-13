@@ -21,5 +21,7 @@ urlpatterns = [
     url(r'^$', views.index,name='index'),
     url(r'^join/',views.join,name='join'),
     url(r'^register/',views.register,name='register'),
+    url(r'^dashboard/', views.dashboard, name='dashboard'),
+    url(r'^login/', views.LOG_IN, name='login'),
 
 ]
