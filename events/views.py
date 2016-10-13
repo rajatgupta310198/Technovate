@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+from django.contrib import messages
 # Create your views here.
 from django.contrib.auth import login,logout,authenticate
 from events.models import Events,Profile
@@ -20,9 +21,16 @@ def register(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
-        user = User(username=username,password=password,email=email,first_name=first_name,last_name=last_name)
+        user = User.objects.create_user(username=username,password=password,email=email,first_name=first_name,last_name=last_name)
+        user.set_password(password)
         user.save()
-        return render(request,'index.html')
+        U = authenticate(username=username,password=password)
+        if U is not None:
+            login(request,U)
+            events = Events.objects.all()
+            return render(request,'dashboard.html',{'events':events})
+
+
 
 
 def UpdateAndCreateProfile(request):
@@ -48,11 +56,9 @@ def LOG_IN(request):
         if user is not None:
             if user.is_active:
                 login(request,user)
-                return render(request,'dashboard.html')
+                e = Events.objects.all()
+                return render(request,'dashboard.html',{'e':e})
         else:
-            return render(request,'index.html')
-
-
-
-
-
+            error_mgs  = "Invalid credentials"
+            messages.error(request, "Error")
+            return redirect('/join',{'error_msg': error_mgs})
