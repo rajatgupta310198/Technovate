@@ -48,6 +48,11 @@ def UpdateAndCreateProfile(request):
         return render(request,'index.html')
 
 
+def events(request):
+    events = Events.object.all()
+    return render(request,'events.html',{'events':events})
+    
+    
 def LOG_IN(request):
     if request.method == "POST":
         username = request.POST['username']
