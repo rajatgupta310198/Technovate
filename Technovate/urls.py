@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^dashboard/', views.dashboard, name='dashboard'),
     url(r'^login/', views.LOG_IN, name='login'),
     url(r'^logout/', views.LOG_OUT, name='logout'),
+    url(r'^events/', views.events, name='events'),
 
 ]
