@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Join Technovate</title>
+    {% load staticfiles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "style.css" %}">
 </head>
 <body>
-  <nav class="blue hoverable">
+  <nav class="teal hoverable">
    <div class="nav-wrapper">
    <a class="brand-logo" href="{% url 'index' %}">Technovate</a>
    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -33,17 +35,25 @@
   <div class="card-panel hoverable">
      <span class="card-title">Login</span>
       <form action="{% url 'login' %}" method="post">
-      <label for="#email">Email :</label>
-      <input type="text" name="email" placeholder="Your Email" id="email" autocomplete="off" required="required"/><br>
-      <label for="#password">Password :</label>
-      <input type="password" name="password" id="password"  autocomplete="off" required="required"/><br>
-      <input type="submit" value="Log In"/>
+      <div class="row">
+        <div class="input-field col s12 m12 l12">
+           <i class="material-icons prefix">email</i>
+          <input type="email" name="email" autocomplete="off" required="required" id="email"/>
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12 m12 l12">
+          <i class="material-icons prefix">mode_edit</i>
+          <input type="password" name="password" autocomplete="off" required="required" id="password"/>
+          <label for="password">Password</label>
+        </div>
+      </div>
+        <button type="submit" value="Log In" class="btn waves-effect waves-light teal">Log In<i class="material-icons right">send</i></button>
       </form>
   </div>
 
 </div>
-<div class="col l2"></div>
-<div class="col s12 m12 l6">
+<div class="col l3"></div>
+<div class="col s12 m12 l5">
 
   <div class="card-panel hoverable">
     <span class="card-title">Sign Up</span>
@@ -70,7 +80,7 @@
            <label for="password">Password</label>
          </div>
       </div>
-      <button type="submit" value="Sign Up" class="btn waves-effect waves-light blue">Sign Up<i class="material-icons right">send</i></button>
+      <button type="submit" value="Sign Up" class="btn waves-effect waves-light teal">Sign Up<i class="material-icons right">send</i></button>
   </form>
   </div>
 
