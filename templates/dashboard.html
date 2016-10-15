@@ -2,25 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {%  load staticfiles %}
     <title>User Dashboard</title>
+   <link rel="stylesheet" href="{% static "style.css" %}">
 </head>
 <body>
 <a href="{% url 'logout' %}">Logout</a>
- {% if user.is_authenticated %}
-  <form method="post">
+  <form method="post" action="{% url 'UpdateProfile' %}">
       <label for="#institute_uni">Institute or University</label>
       <input type="text" name="institute_uni" id="institute_uni"/><br>
       <label for="#phone_no">Phone Number </label>
       <input type="text" name="phoneno" id="phone_no"/><br>
-       {% for event in events %}
-         <input type="radio" id="{{ event.id }}" name="event"/> {{  event.get_event_name}} <br>
-      {% endfor %}
     <input type="submit" value="save"/>
   </form>
- {% else %}
-    Not logged in  go to <a href="{% url 'join.html' %}">Join</a>
-{% endif %}
-
-
 </body>
 </html>
