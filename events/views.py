@@ -50,7 +50,7 @@ def UpdateAndCreateProfile(request):
 
 
 def events(request):
-    events = Events.object.all()
+    events = Events.objects.all()
     return render(request,'events.html',{'events':events})
     
     
