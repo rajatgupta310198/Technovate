@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^join/',views.join,name='join'),
     url(r'^register/',views.register,name='register'),
     url(r'^dashboard/', views.dashboard, name='dashboard'),
+    url(r'^dashboard/update_profile/', views.UpdateAndCreateProfile, name='UpdateProfile'),
     url(r'^login/', views.LOG_IN, name='login'),
     url(r'^logout/', views.LOG_OUT, name='logout'),
     url(r'^events/', views.events, name='events'),
