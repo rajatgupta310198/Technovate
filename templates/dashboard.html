@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {%  load staticfiles %}
-    <title>User Dashboard</title>
-   <link rel="stylesheet" href="{% static "style.css" %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <a href="{% url 'logout' %}">Logout</a>
   <form method="post" action="{% url 'UpdateProfile' %}">
       <label for="#institute_uni">Institute or University</label>
@@ -15,5 +8,4 @@
       <input type="text" name="phoneno" id="phone_no"/><br>
     <input type="submit" value="save"/>
   </form>
-</body>
-</html>
+{% endblock %}
