@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <a href="{% url 'logout' %}">Logout</a>
+{% if status%}
+  <p class="green-text"> {{ status }} </p>
+{% endif%}
+{% if messages %}
+   <div class="card-panel">
+    {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+   </div>
+{% else %}
   <form method="post" action="{% url 'UpdateProfile' %}">
       <label for="#institute_uni">Institute or University</label>
       <input type="text" name="institute_uni" id="institute_uni"/><br>
@@ -8,4 +18,5 @@
       <input type="text" name="phoneno" id="phone_no"/><br>
     <input type="submit" value="save"/>
   </form>
+{% endif %}
 {% endblock %}
