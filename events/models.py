@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Events(models.Model):
     EventName = models.CharField(max_length=50)
     EventDescription = models.CharField(max_length=1000)
+    image = models.ImageField(upload_to='static/events',blank=True)
 
     #get_event_name function for retrieving event name
     def get_event_name(self):
@@ -23,7 +24,7 @@ class Events(models.Model):
 #Table for participants registering for event in Technovate
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    events = models.ManyToManyField(Events)
+    events = models.ManyToManyField(Events,blank=True)
     PhoneNo = models.CharField(max_length=10)
     Institute_Uni = models.CharField(max_length=100)
 
@@ -40,4 +41,4 @@ class Profile(models.Model):
         return self.Institute_Uni
 
     def __str__(self):
-        return self.user.get_full_name()
+        return self.user.get_full_name() + ' ' + self.Institute_Uni
