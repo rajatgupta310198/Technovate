@@ -66,8 +66,10 @@ def LOG_IN(request):
             if user.is_active:
                 login(request,user)
                 if hasattr(user,'profile'):
-                    messages.add_message(request,messages.INFO,user.get_full_name() + ' ' + user.profile.get_phone_no() + ' ' + user.profile.get_Institute_Uni())
-                    return HttpResponseRedirect('/dashboard/')
+                    return render(request,'dashboard.html',{
+                    'full_name':user.get_full_name(),'phone_no':user.profile.get_phone_no(),
+                    'institute':user.profile.get_Institute_Uni()
+                    })
 
                 else:
                     return HttpResponseRedirect('/dashboard/')
