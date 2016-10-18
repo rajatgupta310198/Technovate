@@ -4,6 +4,7 @@ from django.contrib import messages
 # Create your views here.
 from django.contrib.auth import login,logout,authenticate
 from events.models import Events,Profile
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -13,7 +14,7 @@ def index(request):
 def join(request):
     return render(request,'join.html')
 
-
+@login_required(login_url='/join/')
 def dashboard(request):
     return render(request,'dashboard.html')
 
@@ -31,29 +32,31 @@ def register(request):
         if U is not None:
             login(request,U)
             events = Events.objects.all()
-            return render(request,'dashboard.html',{'events':events})
+            status = 'Successfully Registered and Logged in '+ str(first_name)
+            return render(request,'dashboard.html',{'events':events,'status':status})
 
 
+
+@login_required(login_url='/join/')
 def UpdateAndCreateProfile(request):
     if request.method == 'POST':
         user = request.user
-        U = User.objects.filter(pk=user.id)
-        p = Profile()
+        p = Profile(user=user)
         p.Institute_Uni = request.POST['institute_uni']
         p.PhoneNo = request.POST['phoneno']
-        p.save()
         # e = Events.objects.filter(pk=request.POST['event'])
-        #p.events.add()
         p.save()
-        p.user.add(U)
-        return render(request,'index.html')
+        return HttpResponseRedirect('/')
+        #
+    else:
+        return render(request, 'index.html')
 
 
 def events(request):
     events = Events.objects.all()
     return render(request,'events.html',{'events':events})
-    
-    
+
+
 def LOG_IN(request):
     if request.method == "POST":
         username = request.POST['email']
@@ -62,8 +65,14 @@ def LOG_IN(request):
         if user is not None:
             if user.is_active:
                 login(request,user)
-                events = Events.objects.all()
-                return render(request,'dashboard.html',{'events':events})
+                if hasattr(user,'profile'):
+                    messages.add_message(request,messages.INFO,user.get_full_name() + ' ' + user.profile.get_phone_no() + ' ' + user.profile.get_Institute_Uni())
+                    return HttpResponseRedirect('/dashboard/')
+
+                else:
+                    return HttpResponseRedirect('/dashboard/')
+
+
         else:
             error_mgs  = "Invalid credentials"
             messages.error(request, "Error")
