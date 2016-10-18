@@ -23,10 +23,19 @@
         <li><a href="#">About Us</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="{% url 'events' %}">Events</a></li>
-        <li><a href="#">Sponsors</a></li>
-        <li><a href="{% url 'join' %}">Join</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="{% url 'events' %}">
+          <i class="material-icons">today</i>
+          Events</a></li><br>
+        <li><a href="#">
+          <i class="material-icons">business</i>
+          Sponsors
+        </a></li><br>
+        <li><a href="{% url 'join' %}">
+          <i class="material-icons">supervisor_account</i>
+          Join</a></li><br>
+        <li><a href="#">
+          <i class="material-icons">info</i>
+          About Us</a></li>
       </ul>
     </div>
    </nav>
