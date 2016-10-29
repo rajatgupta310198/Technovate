@@ -12,61 +12,62 @@
     <link rel="stylesheet" href="{% static "style.css" %}">
 </head>
 <body>
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-<div id='stars'></div>
-<div id='stars2'></div>
-<div id='stars3'></div>
-<div id='title'>
-  <span>
-   TECHOVATE 2017
-  </span>
-  <br>
-  <span>
-   IIIT-NR
-  </span>
-</div>
-  <nav class="transparent">
-    <div class="nav-wrapper">
-      <a class="brand-logo" href="{% url 'index' %}">Technovate</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a  href="{% url 'events' %}">Events</a></li>
-          <li><a href="#">Sponsors</a></li>
-          {% if request.user.is_authenticated %}
-            <li><a  href={% url 'dashboard'%}><i class="material-icons">dashboard</i></a></li>
-            <li><a  href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i></a></li>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <div id='title'>
+    <span>
+     TECHOVATE 2017
+    </span>
+    <br>
+    <span>
+     IIIT-NR
+    </span>
+  </div>
+      <nav class="transparent">
+      <!--  <nav class="teal hoverable">-->
+         <div class="nav-wrapper">
+          <a class="brand-logo" href="{% url 'index' %}">Technovate</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+           <li><a href="{% url 'events' %}">Events</a></li>
+           <li><a href="#">Sponsors</a></li>
+           {% if request.user.is_authenticated %}
+            <li><a href={% url 'dashboard'%}><i class="material-icons">dashboard</i></a></li>
+            <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i></a></li>
             {% else %}
-          <li><a class="modal-trigger" href="#modal1">Join</a></li>
-          {% endif %}
-          <li><a  href="#">About Us</a></li>
-        </ul>
+           <li><a class="modal-trigger" href="#modal1">Join</a></li>
+           {% endif %}
+           <li><a href="#">About Us</a></li>
+         </ul>
 
 
       <!-- side nav -->
 
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="{% url 'events' %}">
-          <i class="material-icons">today</i>
-          Events</a></li><br>
-        <li><a href="#">
-          <i class="material-icons">business</i>
-          Sponsors
-        </a></li><br>
-        <li>
-          {% if request.user.is_authenticated %}
-            <li><a href="{% url 'dashboard'%}"><i class="material-icons">dashboard</i>Dashboard</a></li><br>
-            <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i>Logout</a></li><br>
-            {% else %}
-          <a href="{% url 'join' %}">
-          <i class="material-icons">supervisor_account</i>
-          Join</a></li><br>
-          {% endif %}
-        <li><a href="#">
-          <i class="material-icons">info</i>
-          About Us</a></li>
-      </ul>
-    </div>
-   </nav>
+       <ul class="side-nav" id="mobile-demo">
+         <li><a href="{% url 'events' %}">
+           <i class="material-icons">today</i>
+            Events</a></li><br>
+          <li><a href="#">
+           <i class="material-icons">business</i>
+           Sponsors
+          </a></li><br>
+         <li>
+           {% if request.user.is_authenticated %}
+             <li><a href="{% url 'dashboard'%}"><i class="material-icons">dashboard</i>Dashboard</a></li><br>
+             <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i>Logout</a></li><br>
+             {% else %}
+             <a href="{% url 'join' %}">
+             <i class="material-icons">supervisor_account</i>
+             Join</a></li><br>
+           {% endif %}
+         <li><a href="#">
+           <i class="material-icons">info</i>
+           About Us</a></li>
+        </ul>
+     </div>
+    </nav>
    {% block content %}
 
    {% endblock %}
@@ -143,7 +144,6 @@
      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
      $('.modal-trigger').leanModal();
      });
-
 
 
    </script>
