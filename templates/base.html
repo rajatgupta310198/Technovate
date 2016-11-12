@@ -38,6 +38,7 @@
             <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i></a></li>
             {% else %}
            <li><a class="modal-trigger" href="#modal1">Join</a></li>
+           <li><a class="modal-trigger" href="#modal2">Campus Ambassador</a></li>
            {% endif %}
            <li><a href="#">About Us</a></li>
          </ul>
@@ -71,7 +72,36 @@
    {% block content %}
 
    {% endblock %}
-
+   <div id="modal2" class="modal">
+    <div class="modal-content">
+         <span class="card-title">Campus Ambassador </span>
+         <form action="#" method="post">
+             <div class="row">
+                 <div class="input-field col s12 m12 l12">
+                     <i class="material-icons prefix">account_circle</i>
+                     <input type="text" name="Name" autocomplete="off" required="required" id="Name"/>
+                     <label for="Name">Name</label>
+                 </div>
+                 <div class="input-field col s12 m12 l12">
+                     <i class="material-icons prefix">email</i>
+                     <input type="email" name="email" autocomplete="off" required="required" id="email"/>
+                     <label for="email">Email</label>
+                 </div>
+                 <div class="input-field col s12 m12 l12">
+                      <i class="material-icons prefix">work</i>
+                      <input type="text" name="institue" autocomplete="off" required="required" id="ins"/>
+                      <label for="ins">Institute</label>
+                 </div>
+                 <div class="input-field col s12 m12 l12">
+                     <i class="material-icons prefix">contact_phone</i>
+                     <input type="text" autocomplete="off" required="required" id="ph"/>
+                     <label for="ph">Phone No.</label>
+                 </div>
+             </div>
+             <button type="submit" value="Become" class="btn waves-effect waves-light teal">Become<i class="material-icons right">send</i></button>
+         </form>
+    </div>
+  </div>
 
   <div id="modal1" class="modal">
     <div class="modal-content">
@@ -130,6 +160,7 @@
       </div>
     </div>
   </div>
+ <!-- Campus ambassador form-->
 
 
  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
