@@ -16,31 +16,23 @@
   <div id='stars'></div>
   <div id='stars2'></div>
   <div id='stars3'></div>
-  <div id='title'>
-    <span>
-     TECHOVATE 2017
-    </span>
-    <br>
-    <span>
-     IIIT-NR
-    </span>
-  </div>
-      <nav class="transparent">
+  
+           <nav class="transparent">
       <!--  <nav class="teal hoverable">-->
          <div class="nav-wrapper">
-          <a class="brand-logo" href="{% url 'index' %}">Technovate</a>
+          <a class="brand-logo" href="{% url 'index' %}"><img src="{% static 'images.png' %}" height="30px" width="25px"/>Technovate</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-           <li><a href="{% url 'events' %}">Events</a></li>
-           <li><a href="#">Sponsors</a></li>
+           <li><a href="{% url 'events' %}">EVENTS</a></li>
+           <li><a href="#">SPONSORS</a></li>
            {% if request.user.is_authenticated %}
             <li><a href={% url 'dashboard'%}><i class="material-icons">dashboard</i></a></li>
             <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i></a></li>
             {% else %}
-           <li><a class="modal-trigger" href="#modal1">Join</a></li>
-           <li><a class="modal-trigger" href="#modal2">Campus Ambassador</a></li>
+           <li><a class="modal-trigger" href="#modal1">JOIN</a></li>
+           <li><a class="modal-trigger" href="#modal2">CAMPUS AMBASSADOR</a></li>
            {% endif %}
-           <li><a href="#">About Us</a></li>
+           <li><a href="{% url 'about' %}">ABOUT US</a></li>
          </ul>
 
 
@@ -59,9 +51,11 @@
              <li><a href="{% url 'dashboard'%}"><i class="material-icons">dashboard</i>Dashboard</a></li><br>
              <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i>Logout</a></li><br>
              {% else %}
-             <a href="{% url 'join' %}">
+             <a class="modal-trigger" href="#modal1">
              <i class="material-icons">supervisor_account</i>
-             Join</a></li><br>
+             Join</a></li>i class="material-icons">supervisor_account</i>
+               <li><a class="modal-trigger" href="#modal2"><i class="material-icons">account_circle</i>Campus Ambassador</a></li>
+               <br>
            {% endif %}
          <li><a href="#">
            <i class="material-icons">info</i>
@@ -175,7 +169,14 @@
      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
      $('.modal-trigger').leanModal();
      });
+   
+             $(document).ready(function(){
+  $('.carousel.carousel-slider').carousel({full_width: true});
 
+     });
+$(document).ready(function(){
+      $('.carousel').carousel();
+    });
 
    </script>
 </body>
