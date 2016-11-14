@@ -84,3 +84,12 @@ def LOG_IN(request):
 def LOG_OUT(request):
     logout(request)
     return redirect('/')
+
+
+
+def CampusAmbassador(request):
+    #fullName = request.POST['Name'];
+    #Ins = request.POST['institute']
+    #email = request.POST['email']
+    #ph = request.POST['ph']
+    pass
