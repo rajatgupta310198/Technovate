@@ -1,9 +1,79 @@
+/*body{
+ background-image: url('technovate_B_F.png');
+}
 html {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  overflow: hidden;
+  overflow:initial;
+  font-family: 'Titillium Web', sans-serif;
+}*/
+body{
+	margin:0;
+	padding:0;
+	font-family: 'Titillium Web', sans-serif;
+	font-size:12px;
+  background: #2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+ /* background: #f9ebea url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;*/
+}
+html{
+  overflow:initial;
+}
+.nav-logo-technovate{
+	height: 75px;
+  width: 240px;
+  display: block;
+}
+.barner{
+  padding: 2px 2px 2px 2px;
+  margin-top: -30px;
+  height: 180px;
+
 }
 
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+.about{
+    font-size:2vw;
+}
+.event-details{
+  font-size:2vw;
+}
+#evn1{
+  overflow:auto;
+}
+#evn3{
+  overflow:auto;
+}
+#evn3{
+  overflow:auto;
+}
 #stars {
   width: 1px;
   height: 1px;
@@ -57,12 +127,12 @@ html {
 
 #title {
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 0;
   right: 0;
   color: #FFF;
   text-align: center;
-  font-family: "lato", sans-serif;
+  /*font-family: "lato", sans-serif;*/
   font-weight: 300;
  /* font-size: 50px;*/
   letter-spacing: 10px;
@@ -76,6 +146,33 @@ html {
   -webkit-text-fill-color: transparent;
 }
 
+.member{
+  margin-left: 68px;
+  margin-top: 10px;
+  font-size: 20px;
+  color:white;
+  /*font-family: 'Ubuntu';*/
+}
+.work{
+  margin-left: 68px;
+  font-size: 18px;
+  color: #1266ba;
+  font-family: 'Ubuntu';
+}
+
+.memberimg{
+  width:80%;
+  height: 180px;
+	margin-left: 25px;
+	margin-top: 15px;
+  border-radius: 20px 20px 20px 20px;
+  -webkit-transition:border-radius 2s border-color 2s;
+  transition: border-radius 2s border-color 2s;
+}
+.memberimg:hover{
+  border-radius: 25px 25px 25px 25px;
+  border-color:blue;
+}
 @keyframes animStar {
   from {
     transform: translateY(0px);
@@ -83,4 +180,7 @@ html {
   to {
     transform: translateY(-2000px);
   }
+}
+.barner-text{
+  font-size: 2vw;
 }
