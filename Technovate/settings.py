@@ -25,7 +25,7 @@ SECRET_KEY = '9r@emzj&+-_7^jajld(^oh_ufg%oe14xql2xe-ui^4k&5d_e39'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com']
 
 
 # Application definition
@@ -40,15 +40,24 @@ INSTALLED_APPS = [
     'events',
 ]
 
+ACCOUNT_ACTIVATION_DAYS = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+   # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+#EMAIL_USE_SSL = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
+EMAIL_HOST_USER = 'technovate.iiitnr@gmail.com'
+EMAIL_HOST_PASSWORD = 'p47rwENTY3afH52V'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 ROOT_URLCONF = 'Technovate.urls'
 
@@ -121,7 +130,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]
