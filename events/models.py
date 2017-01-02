@@ -7,7 +7,9 @@ from django.contrib.auth.models import User
 class Events(models.Model):
     EventName = models.CharField(max_length=50)
     EventDescription = models.CharField(max_length=1000)
-    image = models.ImageField(upload_to='static/events',blank=True)
+    eventCost = models.DecimalField(max_digits=5,decimal_places=2,default=0)
+    Event_Cat = models.IntegerField(default=0)
+    #image = models.ImageField(upload_to='static/events',blank=True)
 
     #get_event_name function for retrieving event name
     def get_event_name(self):
@@ -27,6 +29,11 @@ class Profile(models.Model):
     events = models.ManyToManyField(Events,blank=True)
     PhoneNo = models.CharField(max_length=10)
     Institute_Uni = models.CharField(max_length=100)
+    payment_to_be_paid = models.DecimalField(max_digits=5,decimal_places=2,default=0)
+    payment_paid = models.DecimalField(max_digits=5,decimal_places=2,default=0)
+    is_active = models.BooleanField(null=False,default=False)
+    secret_code = models.CharField(max_length=5,default=0)
+
 
     #get_participated_in function for retrieving list of participated events by profile
     def get_participated_in(self):
@@ -42,3 +49,18 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.get_full_name() + ' ' + self.Institute_Uni
+
+
+    # in progress
+    class Admin:
+        list_display = ('user.get_full_name','user.email')
+
+
+class CampusRepresantative(models.Model):
+    Name = models.CharField(max_length=100)
+    Institute = models.CharField(max_length=100)
+    Phone = models.CharField(max_length=10)
+    email = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.Name + ' ' + self.Institute
