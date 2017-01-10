@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
       $(".button-collapse").sideNav();
 });
@@ -12,16 +13,18 @@ $(document).ready(function () {
     $('#tech-team').hide("fast");
     $('#title').hide("fast");
     $('#tevents').show();
+    $('#workshop').hide();
 
     $('#homelink').click(function(){
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#tevents').hide("slow");
+        $('#workshop').hide("slow");
         $('#tech-team').hide("slow");
         $('#why').show();
         $('.button-collapse').sideNav('hide');
         $('#title').show("slow");
-     
+
 
 
         $('#tevn1').hide();
@@ -39,6 +42,7 @@ $(document).ready(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
+        $('#workshop').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
         $('#title').show("slow");
@@ -59,6 +63,7 @@ $(document).ready(function () {
         $('#title').hide("slow");
         $('#aboutus').hide("slow");
         $('#tech-team').hide();
+        $('#workshop').hide("slow");
         $('.button-collapse').sideNav('hide');
         $('#sponsors').slideToggle("slow");
         $('#why').show();
@@ -80,6 +85,7 @@ $(document).ready(function () {
         $('#title').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
+        $('#workshop').hide("slow");
         $('#aboutus').slideDown("slow");
         $('#why').show();
 
@@ -98,6 +104,7 @@ $(document).ready(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#title').hide("slow");
+        $('#workshop').hide("slow");
         $('#aboutus').hide("slow");
         $('.button-collapse').sideNav('hide');
         $('#tech-team').slideDown("slow");
@@ -117,11 +124,12 @@ $(document).ready(function () {
     $('#techeventslink').click(function(){
       $('#dashboard').hide("fast");
       $('#sponsors').hide("fast");
+      $('#workshop').hide("slow");
       $('#title').hide("fast");
       $('#aboutus').hide("fast");
       $('.button-collapse').sideNav('hide');
       $('#tech-team').hide("slow");
-      $('#why').hide();
+      $('#why').show();
       $('#tevents').show("fast");
 
       $('#tevn1').hide();
@@ -134,9 +142,30 @@ $(document).ready(function () {
       $('#ntevn1').hide();
       $('#ntevn2').hide();
     });
+    $('#workshoplink').click(function(){
+      $('#title').hide("slow");
+      $('#sponsors').hide("slow");
+      $('#aboutus').hide("slow");
+      $('#tech-team').hide("slow");
+      $('#why').show();
+      $('#dashboard').hide();
+      $('.button-collapse').sideNav('hide');
+      $('#tevents').hide("slow");
+      $('#workshop').show("slow");
+
+      $('#tevn1').hide();
+      $('#tevn2').hide();
+      $('#tevn3').hide();
+      $('#tevn4').hide();
+      $('#tevn5').hide();
+      $('#tevn6').hide();
+      $('#ntevn1').hide();
+      $('#ntevn2').hide();
+    });
     $('#homelinkmobile').click(function(){
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
+        $('#workshop').hide("slow");
         $('#tevents').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
@@ -159,7 +188,8 @@ $(document).ready(function () {
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#tech-team').hide("slow");
-        $('#why').hide();
+        $('#workshop').hide("slow");
+        $('#why').show();
         $('.button-collapse').sideNav('hide');
         $('#tevents').show("slow");
 
@@ -173,10 +203,30 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
+    $('#workshoplinkmobile').click(function(){
+      $('#title').hide("slow");
+      $('#sponsors').hide("slow");
+      $('#aboutus').hide("slow");
+      $('#tech-team').hide("slow");
+      $('#why').show();
+      $('#dashboard').hide();
+      $('.button-collapse').sideNav('hide');
+      $('#tevents').hide("slow");
+      $('#workshop').show("slow");
 
+      $('#tevn1').hide();
+      $('#tevn2').hide();
+      $('#tevn3').hide();
+      $('#tevn4').hide();
+      $('#tevn5').hide();
+      $('#tevn6').hide();
+      $('#ntevn1').hide();
+      $('#ntevn2').hide();
+    });
     $('#indexlinkmobile').click(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
+        $('#workshop').hide("slow");
         $('#aboutus').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
@@ -197,6 +247,7 @@ $(document).ready(function () {
         $('#tevents').hide("slow");
         $('#title').hide("slow");
         $('#aboutus').hide("slow");
+        $('#workshop').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
         $('#sponsors').slideToggle("slow");
@@ -218,6 +269,7 @@ $(document).ready(function () {
     $('#aboutlinkmobile').click(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
+        $('#workshop').hide("slow");
         $('#title').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
@@ -237,20 +289,12 @@ $(document).ready(function () {
 
 
     });
-    $('#sponsorslinkmobile').click(function(){
-      $('#tevents').hide("slow");
-      $('#tech-team').hide("slow");
-      $('#title').hide("slow");
-      $('#aboutus').hide("slow");
-      $('.button-collapse').sideNav('hide');
-      $('#sponsors').slideDown("slow");
-
-    });
     $('#teamlinkmobile').click(function() {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#title').hide("slow");
         $('#aboutus').hide("slow");
+        $('#workshop').hide("slow");
         $('.button-collapse').sideNav('hide');
         $('#tech-team').slideDown("slow");
 
