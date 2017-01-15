@@ -1,6 +1,6 @@
 /*body{
  background-image: url('technovate_B_F.png');
-}
+}#2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0
 html {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
@@ -160,7 +160,8 @@ body{
 	padding:0;
 	font-family: 'Titillium Web', sans-serif;
 	font-size:12px;
- 	/*background: #d1684e;/*
+ 	background:#1b2735;/*
+           #020133 
    background: #2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
 /*	-webkit-animation: 10s linear 0s normal none infinite animate;
 	-moz-animation: 10s linear 0s normal none infinite animate;
@@ -376,13 +377,22 @@ html{
 	margin-right: 5px;
 }
 .memberimg{
-  width:100%;
-  height:auto;
-	margin-left: 0px;
+ /* width:100%;
+  height:auto;*/
+	margin-left: 65px;
 	margin-top: 15px;
-  border-radius: 82px 82px 82px 82px;
+  border-radius: 127px 127px 127px 127px;
   -webkit-transition:border-radius 2s border-color 2s;
   transition: border-radius 2s border-color 2s;
+    width:  140px;
+    height: 140px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.team-card{
+  z-index: 1;
+  position: relative;
 }
 #sponsors{
   position: relative;
@@ -392,7 +402,7 @@ html{
   font-size:1.5em;
 }
 .memberimg:hover{
-  border-radius: 91px 91px 91px 91px;
+  border-radius: 127px 127px 127px 127px;
   border-color:blue;
 }
 .event-co{
@@ -425,8 +435,7 @@ html{
 	z-index: 0;
 }
 #tech-team{
-	z-index: 1;
-	position: absolute;
+	
 }
 #basic_dash{
 	z-index:1000998;
