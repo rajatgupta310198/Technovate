@@ -169,14 +169,17 @@
     <link rel="stylesheet" href="{% static "css/temp.css"%}">
  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
  --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+    
+    {% if request.user.is_authenticated %}
     <script>
+    
       $(window).on('load',function () {
         $('#loader').fadeOut("slow");
-        /*$('body').css('background',"#2980b9");*/
-        $('#myT').fadeIn(5000);/*
-        $('#google').fadeIn(5000);*/
+        $('#myT').fadeIn(5000);
+        /*$('#landing').css('display',"block");*/
       });
-       
       /*
       window.onload = function () {
         /*var url = 'http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png';*/
@@ -187,6 +190,35 @@
 
       }*/
     </script>
+    {% else %}
+    <script>
+    
+      $(window).on('load',function () {
+        $('#loader').fadeOut("slow");
+        /*$('#myT').fadeIn(5000);*/
+        $('#landing').css('display',"block");
+      });
+      $(document).ready(function(){
+        $(function(){
+        $(".typed").typed({
+          strings: ["create", "innovate", "technovate"],
+          typeSpeed: 1,
+          loop: true,
+          backDelay: 1000
+        });
+      });
+      });
+      /*
+      window.onload = function () {
+        /*var url = 'http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png';*/
+/*
+        document.getElementById("loader").style.display = "none";
+        document.body.style.background ="#2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0";
+        document.getElementById("myT").style.display = "block";
+
+      }*/
+    </script>
+    {% endif %}
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">-->
    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
@@ -215,6 +247,7 @@
         });
      });
      $(document).ready(function () {
+
          $('#tevents').hide();
          $('#sponsors').hide();
          $('#aboutus').hide();
@@ -222,6 +255,7 @@
          $('#workshop').hide();
          $('#title').hide("slow");
          $('#dashboard').show();
+         $('.acc-desc').hide();
          $('.homelink').click(function(){
              $('#sponsors').hide("slow");
              $('#aboutus').hide("slow");
@@ -488,7 +522,48 @@
     {% else %}
      <script src="{% static 'technovate.js'%}"></script>
      {% endif%}
-
+     <script type="text/javascript">
+       $(document).ready(function(){
+        $('.accomodation').click(function(){
+          $('#tevents').hide("slow");
+          $('#sponsors').hide("slow");
+          $('#title').hide("slow");
+          $('#aboutus').hide("slow");
+          $('.button-collapse').sideNav('hide');
+          $('#tech-team').hide("slow");
+          $('#workshop').hide("slow");
+          $('#dashboard').hide("fast");
+          $('#accomodation-details').show("slow");
+        });
+        $('.close').click(function(){
+          $('#accomodation-details').hide("fast");
+          $('#workshop').hide("fast");
+          $('#privacy-disclaimer').hide("fast");
+          $('#title').show("fast");
+        });
+        $('#greet').click(function(){
+          $('#landing').css('display',"none");
+          $('#myT').fadeIn(5000);
+        });    
+        $('.register_workshop').click(function(){
+          $('#workshop').hide("fast");
+          $('#dashboard').show("fast");
+        });
+        $('.privacy-policy').click(function(){
+          $('#tevents').hide("slow");
+          $('#sponsors').hide("slow");
+          $('#title').hide("slow");
+          $('#aboutus').hide("slow");
+          $('.button-collapse').sideNav('hide');
+          $('#tech-team').hide("slow");
+          $('#workshop').hide("slow");
+          $('#dashboard').hide("fast");
+          $('#privacy-disclaimer').show("slow");
+        });
+       });
+         
+          
+     </script>
 </head>
 
 <body>
@@ -524,7 +599,14 @@
   <div class="dot"></div>
 </div>
 <div id="particles-js"></div>
- 
+ <div id="landing" class="white-text">
+   <div id="message">
+      Ready to <span class="typed"></span><br>
+      
+   </div>
+    <a href="#" id="greet" class="btn waves-effect waves blue">Explore</a>
+ </div>
+
 <div id="myT">
 <!-- <div id='stars'></div>
   <div id='stars2'></div>
@@ -551,43 +633,32 @@
           {% endif %}
           <li><a class="tooltipped aboutlink" data-position="bottom" data-delay="50" data-tooltip="Vision" href="#">ABOUT US</a></li>
         </ul>
-
+        </div>
+    </nav>
     <ul id="mobile-demo" class="side-nav">
-        <li><div class="userView transparent">
-          <div class="background">
-            <img src="{% static 'TECHNOVATE_beta.png' %}">
-          </div>
-          <a href="#!user"><img class="circle" src="{% static 'tv_icon.png' %}"></a>
-          <a href="#!name"><span class="green-text name">Technovate</span></a>
-          <a href="#!email"><span class="green-text email">technovate@iiitnr.edu.in</span></a>
-        </div></li>
-        <li><a href="#" class="homelink"><i class="fa fa-home" aria-hidden="true"></i>
-HOME</a></li><br>
-        <li><a href="{%url 'techevents'%}"><i class="fa fa-calendar" aria-hidden="true"></i>EVENTS</a></li><br>
-
-        <!--<ul id="dropDownM" class="dropdown-content">
-          <li><a href="#" id="techeventslinkmobile">Tech Events</a></li>
-          <li><a href="#" id="nontecheventslinkmobile">Cultural</a></li>
-        </ul>-->
-        <li><a class="workshoplink" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>WORKSHOP</a></li><br>
-        <li><a href="#" class="sponsorslink"><i class="fa fa-usd" aria-hidden="true"></i>SPONSORS</a></li><br>
-        <li><a href="#" class="teamlink"><i class="fa fa-users" aria-hidden="true"></i>
-OUR TEAM</a></li><br>
+        <li class="logo"><a href="#" class="indexlink brand-logo">
+          <img src="{% static 'TECHNOVATE_beta.png'%}">
+        </a></li><br><br><li><div class="divider"></div></li>
+        <li><a href="#" class="homelink"><i class="material-icons">home</i>HOME</a></li> 
+        <li><a href="{%url 'techevents'%}"><i class="material-icons">event</i>EVENTS</a></li>
+        <li><a class="workshoplink" href="#"><i class="fa fa-cogs" aria-hidden="true"></i>WORKSHOP</a></li>
+        <li><a href="#" class="sponsorslink"><i class="material-icons">monetization_on</i>SPONSORS</a></li>
+        <li><a href="#" class="teamlink"><i class="material-icons">supervisor_account</i>OUR TEAM</a></li>
         <li>
           {% if request.user.is_authenticated %}
           <li><a class="dashboardlink" href="#"><i class="material-icons">dashboard</i></a></li>
-          <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i>LOGOUT</a></li><br>
+          <li><a href="{% url 'logout' %}"><i class="material-icons ">power_settings_new</i>LOGOUT</a></li>
           {% else %}
-          <li><a class="modal-trigger" id="joinID" href="{% url 'join'%}"><i class="fa fa-user-plus" aria-hidden="true"></i>
-JOIN US</a></li><br>
-          <li><a class="modal-trigger" href="#modal2"><i class="fa fa-user-o"></i>CAMPUS AMBASSADOR</a></li><br>
+          <li><a class="modal-trigger" id="joinID" href="{% url 'join'%}"><i class="material-icons">account_circle</i>JOIN US</a></li>
+          <li><a class="modal-trigger" href="#modal2"><i class="fa fa-user-o"></i>CAMPUS AMBASSADOR</a></li>
           {% endif %}
-          <li><a  href="#" class="aboutlink"><i class="fa fa-info-circle" aria-hidden="true"></i>
-ABOUT US</a></li>
+          <li><a href="#" class="accomodation"><i class="material-icons">local_hotel</i>HOSPITALITY</a></li>
+          <li><a  href="#" class="aboutlink"><i class="material-icons">info_outline</i>ABOUT US</a></li>
+          <li><a href="#" class="privacy-policy"><i class="material-icons">import_contacts</i>PRIVACY</a></li>
         </ul>
-      </div>
-    </nav>
   </div>
+
+
       <div id="title">
        <img src="{% static 'index_technovate.png'%}" id="main" class="responsive-img">
       </div>
@@ -596,8 +667,14 @@ ABOUT US</a></li>
         <a href="#contact_modal" class="modal-trigger hoverable waves-effect waves-light btn grey darken-3">CONTACT US</a>
       </div>
 
-       <div id="why"class="my-btn-i">
-         <a class="hoverable waves-effect waves-light btn grey darken-3" href="{% static 'documents/IIIT-NR_Sponsorship_Brochure.pdf'%}">Sponsorship Brochure</a>
+       <div id="why" class="my-btn-i">
+         <a class="hoverable waves-effect waves-light btn grey darken-3" target="_blank" href="{% static 'documents/IIIT-NR_Sponsorship_Brochure.pdf'%}">Sponsorship Brochure</a>
+       </div>
+       <div class="my-btn-email accomodation hide-on-small-only">
+         <a class="hoverable waves-effect waves-light btn grey darken-3" href="#">Hospitality</a>
+       </div>
+       <div class="my-btn-why privacy-policy hide-on-small-only">
+         <a class="hoverable waves-effect waves-light btn grey darken-3" href="#">Privacy and Disclaimer</a>
        </div>
        <!--<div class="hide-on-med-and-down my-btn-why">
          <a class="modal-trigger hoverable waves-effect waves-light btn blue" href="#modal2">CAMPUS AMBASSADOR</a>
@@ -640,38 +717,48 @@ ABOUT US</a></li>
 
     </div>
 
-    <div id="workshop" class="white-text">
-      <center><h4>Workshop on Augmented Realities</h4></center>
-      <div class="row">
-        <div class="col l1"></div>
-          <div class="col s12 m12 l10">
-            <p class="workshop-intro">
-              Touch and Augmented Reality is the two days workshop to learn about sixth sense technologies on which Microsoft, Google, Intel & many more organisations currently working on it.
-            </p>
-          </div><div class="col l2"></div>
-          <div class="col s12 m12 l10 workshop-intro">
-            -> Create Multi Touchpad<br>
-            -> Control PC with Hand Gestures and Eyes<br>
-            -> Convert laptop screen into touch<br>
-            -> Make Interactive Touch wall<br>
-            -> Control Music with Paper<br>
-            -> Make Kinect Xbox 360 applications<br>
-            And many more... <br>
-            Please visit website of our partner Roboflux for more information below
-          </div>
-          <div class="col l2"></div>
-          <div class="col s12 m12 l6">
-            <a href="http://roboflux.com/robo_full_ads.php?pid=5"><img class="responsive-img" src="{% static 'sponsors/roboflux.jpg'%}"/></a>
-          </div>
+    <div id="workshop" class="acc-desc">
+       <div class="row">
+        <div class="col s9 m9 l9 white-text"><h4>Touch and Augmented Reality</h4></div>
+        <a class="close" href="#"><i class="fa fa-times-circle fa-3x" aria-hidden="true"></i></a>
+        <div class="col s12 m12 l6">
+          <p class="event-details white-text">Touch and Augmented Reality is the two days workshop to learn about sixth sense technologies on which Microsoft, Google, Intel & many more organisations currently working on it.</p>
+          <br>
+          <p>
+             <ul class="event-details white-text">
+               <li>Create Multi Touchpad</li>
+               <li>Control PC with Hand Gestures and Eyes</li>
+               <li>Convert laptop screen into touch</li>
+               <li>Make Interactive Touch wall</li>
+               <li>Control Music with Paper</li>
+               <li>Make Kinect Xbox 360 applications</li>
+               <li>Create a augmented world</li>
+               <li>Gesture Interface</li>
+               <li>Play games using motion sensing</li>
+               <li>Create windows applications</li>
+             </ul>
+          </p>
+          <br>
+          {% if request.user.is_authenticated %}
+            <a href="#" id="register_workshop" class="btn waves waves-light blue">Register Now</a>
+            {% else %}
+              <p class="event-details white-text btn disabled">Login To Register</p>
+              {% endif %}
+        </div>
+        <div class="col s12 m12 l6">
+          <br><br>
+          <a href="http://roboflux.com/robo_full_ads.php?pid=5" target="_blank"><img class="responsive-img" src="{% static 'sponsors/roboflux.jpg'%}"/>
+        </div>
       </div>
     </div>
+    
 <!-- TEAM VIEW -->
     <div class="row" id="tech-team">
 
       <div id="pr" class="col s12 m12 l12">
         <center><h4 class="white-text">Public Relation</h4></center>
         <br><hr>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/piyush.jpg' %}">
@@ -680,14 +767,14 @@ ABOUT US</a></li>
               <div class="member">PIYUSH YADUVANSHI</div>
               <div class="work">Public Relation</div>
               <div class="contact">
-                <a href="tel:8957152164">8957152164</a>
+                <a href="tel:+91-8957152164">+91-8957152164</a>
                 <a href="mailto:piyush15100@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
           </div>
         </div>
         <div class="col l1"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/shrikant.jpg' %}">
@@ -696,14 +783,14 @@ ABOUT US</a></li>
               <div class="member">SHRIKANT GUPTA</div>
               <div class="work">Public Relation</div>
               <div class="contact">
-                <a href="tel:9977701425">9977701425</a>
+                <a href="tel:+91-9977701425">+91-9977701425</a>
                 <a href="mailto:shirkant15101@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
           </div>
         </div>
         <div class="col l1"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/abhi.jpg' %}">
@@ -712,7 +799,7 @@ ABOUT US</a></li>
               <div class="member">ABHISHEK SHARMA</div>
               <div class="work">Public Relation</div>
               <div class="contact">
-                <a href="tel:9406016961">9406016961</a>
+                <a href="tel:+91-9406016961">+91-9406016961</a>
                 <a href="mailto:abhishek15100@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
@@ -723,7 +810,7 @@ ABOUT US</a></li>
         <center><h4 class="white-text">Web Team</h4></center>
         <br><hr>
         <div class="col l2"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12 ">
              <img class="memberimg" src="{% static 'Team/rajat.jpg' %}">
@@ -732,14 +819,14 @@ ABOUT US</a></li>
               <div class="member">RAJAT GUPTA</div>
               <div class="work">WEB DEVELOPMENT</div>
               <div class="contact">
-                <a href="tel:7587745898">7587745898</a>
+                <a href="tel:+91-7587745898">+91-7587745898</a>
                 <a href="mailto:rajatgupta310198@gmail.com"><i class="material-icons">email</i></a>
               </div>
             </div>
           </div>
         </div>
         <div class="col l2"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/yashk.jpg' %}">
@@ -748,7 +835,7 @@ ABOUT US</a></li>
                <div class="member">YASH K SINHA</div>
                 <div class="work">WEB DEVELOPMENT</div>
                 <div class="contact">
-                <a href="tel:7587745898" target="_self">7587745898</a>
+                <a href="tel:+91-7587745898" target="_self">+91-7587745898</a>
                 <a href="mailto:yash15100@iiitnr.edu.in"><i class="material-icons">email</i></a>
                 </div>
               </div>
@@ -760,7 +847,7 @@ ABOUT US</a></li>
       <div id="spon" class="col s12 m12 l12">
         <center><h4 class="white-text">Sponsorship</h4></center>
         <br><hr>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
            <div class="row">
              <div class="col s12 m12 l12">
                <img class="memberimg" src="{% static 'Team/sid.jpg' %}">
@@ -769,14 +856,14 @@ ABOUT US</a></li>
                <div class="member">SIDDHANT DASH</div>
                <div class="work">Sponsorship</div>
                <div class="contact">
-                 <a href="tel:9425556776">9425556776</a>
+                 <a href="tel:+91-9425556776">+91-9425556776</a>
                  <a href="mailto:siddhant15101@iiitnr.edu.in"><i class="material-icons">email</i></a>
                </div>
              </div>
            </div>
          </div>
          <div class="col l1"></div>
-         <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+         <div class="col s12 m12 l3 hoverable team-card">
            <div class="row">
              <div class="col s12 m12 l12">
                <img class="memberimg" src="{% static 'Team/prakshaal.jpg' %}">
@@ -785,14 +872,14 @@ ABOUT US</a></li>
                <div class="member">PRAKSHAAL JAIN</div>
                <div class="work">Sponsorship</div>
                <div class="contact">
-                 <a href="tel:9039081299">9039081299</a>
+                 <a href="tel:+91-9039081299">+91-9039081299</a>
                  <a href="mailto:prakshaal15101@iiitnr.edu.in"><i class="material-icons">email</i></a>
                </div>
              </div>
            </div>
          </div>
          <div class="col l1"></div>
-         <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+         <div class="col s12 m12 l3 hoverable team-card">
            <div class="row">
              <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/danish.jpg' %}">
@@ -801,7 +888,7 @@ ABOUT US</a></li>
                <div class="member">Ehsan Danish</div>
                <div class="work">Sponsorship</div>
                <div class="contact">
-                 <a href="tel:9406016820">9406016820</a>
+                 <a href="tel:+91-9406016820">+91-9406016820</a>
                  <a href="mailto:danish15101@iiitnr.edu.in"><i class="material-icons">email</i></a>
                </div>
              </div>
@@ -817,7 +904,7 @@ ABOUT US</a></li>
         <center><h4 class="white-text">Event Management</h4></center>
         <br><hr>
         <div class="col l5"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
              <img class="memberimg" src="{% static 'Team/anand.jpg' %}">
@@ -826,7 +913,7 @@ ABOUT US</a></li>
               <div class="member">ANAND V SINGH</div>
               <div class="work">Event Management</div>
               <div class="contact">
-                <a href="tel:9406016967">9406016967</a>
+                <a href="tel:+91-9406016967">+91-9406016967</a>
                 <a href="mailto:anand15101@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
@@ -839,7 +926,7 @@ ABOUT US</a></li>
         <center><h4 class="white-text">Marketing and Promotion</h4></center>
         <br><hr>
         <div class="col l5"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/nitin.jpg' %}">
@@ -848,7 +935,7 @@ ABOUT US</a></li>
               <div class="member">NITIN DEONANI</div>
               <div class="work">Marketing and Promotion</div>
               <div class="contact">
-                <a href="tel:70249807388">7024980738</a>
+                <a href="tel:+91-70249807388">+91-7024980738</a>
                 <a href="mailto:nitin15100@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
@@ -859,7 +946,7 @@ ABOUT US</a></li>
         <center><h4 class="white-text">Accounts and Ideate</h4></center>
         <br><hr>
         <div class="col l2"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/kaustub.jpg' %}">
@@ -868,14 +955,14 @@ ABOUT US</a></li>
               <div class="member">KAUSTUBH VATS</div>
               <div class="work">Accounts and Ideate</div>
               <div class="contact">
-                <a href="tel:9406016899">9406016899</a>
+                <a href="tel:+91-9406016899">+91-9406016899</a>
                 <a href="mailto:kaustubh15100@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
           </div>
         </div>
         <div class="col l2"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
              <img class="memberimg" src="{% static 'Team/prashant.jpg' %}">
@@ -884,7 +971,7 @@ ABOUT US</a></li>
               <div class="member">PRASHANT DHILLON</div>
               <div class="work">Accounts and Ideate</div>
               <div class="contact">
-                <a href="tel:8764025173">8764025173</a>
+                <a href="tel:+91-8764025173">+91-8764025173</a>
                 <a href="mailto:prasant15101@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
@@ -895,7 +982,7 @@ ABOUT US</a></li>
         <center><h4 class="white-text">Cultural</h4></center>
         <br><hr>
         <div class="col l5"></div>
-        <div class="col s12 m12 l3 hoverable z-depth-3 team-card">
+        <div class="col s12 m12 l3 hoverable team-card">
           <div class="row">
             <div class="col s12 m12 l12">
               <img class="memberimg" src="{% static 'Team/nitesh.jpg' %}">
@@ -904,7 +991,7 @@ ABOUT US</a></li>
               <div class="member">NITESH AGRAWAL</div>
               <div class="work">Cultural</div>
               <div class="contact">
-                <a href="tel:9777778670">9777778670</a>
+                <a href="tel:+91-9777778670">+91-9777778670</a>
                 <a href="mailto:nitesh15100@iiitnr.edu.in"><i class="material-icons">email</i></a>
               </div>
             </div>
@@ -913,35 +1000,59 @@ ABOUT US</a></li>
       </div>
       </div>
 
+<!-- Accomodation-->
+<div id="accomodation-details" class="acc-desc">
+      <div class="row">
+        <div class="col s9 m9 l9 white-text"><h4>Hospitality</h4></div>
+        <a class="close" href="#"><i class="fa fa-times-circle fa-3x" aria-hidden="true"></i></a>
+        <div class="col s12 m12 l6">
+          <p class="event-details white-text"> Not from around here, worried where you are going to spend the night as the campus prepares itself for yet another magnanimous day, well worry no more, here at IIIT NR, we provide the cheapest and best accommodation, with the infinitesimal price of Rs. 100, you can spend two nights at our campus and enjoy the calm night of the city of Naya Raipur.</p>
+          <br>
+         <!-- <p class="event-details white-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+        </div>
+        <div class="col s12 m12 l6"></div>
+      </div>
+    </div>
+<!--  End of Accomodation-->
+
+<!-- Disclaimer and Privacy Policy -->
+  <div id="privacy-disclaimer" class="acc-desc">
+     <div class="row">
+       <div class="col s12 m9 l9 white-text"><h5>Terms and Conditions</h5></div>
+       <a class="close" href="#"><i class="fa fa-times-circle fa-3x" aria-hidden="true"></i></a>
+       <div class="col s12 m9 l9 white-text"><h6>Disclaimer</h6></div>
+       <div class="col s12 m12 l12 white-text"><p class="event-details">
+         This service is provided to facilitate access and make payments online. TechNovate 2k17 or the
+payment service provider do not make any representation of any kind, explicit or implicit, as to
+the payment gateway other than what is specified on TechNovate’s website. By
+accepting/agreeing to these terms and conditions, the user agrees that the use of online payment
+service is entirely at own risk and responsibility.
+       </p>
+     </div>
+     <div class="col 12 m12 l12 white-text"><h6>Privacy Policy</h6></div>
+     <div class="col s12 m12 l12 white-text">
+     <ul class="white-text event-details">
+       <li><p><b>Information we collect:</b>  We ensure that the collection of personal information is limited to what is necessary to fulfill the purpose as mentioned. If your information is used in a manner different than the purpose it is collected, then we will ask you for your consent prior to its use.</p></li>
+       <li><p><b>How do we use your information:</b>   Your information will be used to process transactions. Your information will not be sold, exchanged or given to any other institution for reason whatsoever, without your consent, other than delivering the purchased service or product.</p></li>
+        <li><p><b>Cookies:</b>Technovate-iiitnr.org uses cookies to store information about visitor's eferences, to personalize or customize our web page content based upon visitor's browser type or other information that the visitor sends via their browser. Any information collected via cookies will not be shared with any third party.</p></li>
+     </ul>
+     </div>
+     <div class="col 12 m12 l12 white-text"><h6>Consent</h6></div>
+     <div class="col s12 m12 l12 white-text">
+       <p class="event-details">By using our website, you hereby consent to our privacy policy and agree to its terms and
+conditions.</p>
+     </div>
+     <div class="col 12 m12 l12 white-text"><h6>Cancellation Policy</h6></div>
+     <div class="col s12 m12 l12 white-text">
+       <p class="event-details">No amount will be refunded upon the cancellation of your tickets or passes. In case of any conflict, the decision of the organizers will be final. In any event, the organizers shall not be liable for special, punitive, consequential or incidental damages, including lost revenue, profits
+or other benefits.</p>
+     </div>
+  </div>
+  </div>
+<!-- -->
 
 <!-- Sponsors  -->
     <div class="row" id="sponsors">
-       <!--<div class="col s12 m12 l12">
-         <center><h4 class="white-text">Sponsors</h4></center><br><hr><br>
-         <div class="row">
-         <div class="col s12 m12 l3 hoverable">
-           <div class="row">
-             <div class="col s12 m12 l12">
-               <center><img class="responsive-img" src="{% static 'sponsors/jetbrains.png' %}"></center>
-             </div>
-           </div>
-         </div>
-         <div class="col s12 m12 l3 hoverable">
-           <div class="row">
-             <div class="col s12 m12 l12">
-               <center><img class="responsive-img" src="{% static 'sponsors/chips.jpg' %}"></center>
-             </div>
-           </div>
-         </div>
-         <div class="col s12 m12 l3 hoverable">
-           <div class="row">
-             <div class="col s12 m12 l12">
-               <center><img class="responsive-img" src="{% static 'sponsors/MyFMLogo.jpg' %}"></center>
-             </div>
-           </div>
-         </div>
-        </div>
-      </div>-->
       <div class="row">
         <div class="col l1"></div>
         <div class="col l10 z-depth-3">
@@ -1330,19 +1441,6 @@ ABOUT US</a></li>
   <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
 particlesJS("particles-js", {"particles":{"number":{"value":50,"density":{"enable":true,"value_area":800}},"color":{"value":"#72ce35"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
-  </script>
-  <script type="text/javascript">
-    var time = new Date();
-var h = time.getHours();
-if (h > 12) {
-    h -= 12;
-} else if (h === 0) {
-  h = 12;
-}
-var m = time.getMinutes();
-if (m < 10){ m = "0" + m;  }
-
-$("time").text(h + ":" + m);
   </script>
 </body>
 </html>
