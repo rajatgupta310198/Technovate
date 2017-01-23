@@ -15,12 +15,14 @@ $(document).ready(function () {
     $('#title').show("slow");
     $('#dashboard').hide();
     $('#workshop').hide();
-    $('#homelink').click(function(){
+    $('.acc-desc').hide("fast");
+    $('.homelink').click(function(){
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#tevents').hide("slow");
         $('#workshop').hide("slow");
         $('#tech-team').hide("slow");
+        $('.my-reg-button').show("fast");
         $('#dashboard').hide();
         $('#why').show();
         $('.button-collapse').sideNav('hide');
@@ -40,6 +42,7 @@ $(document).ready(function () {
         $('#title').hide("slow");
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
+        $('.my-reg-button').hide("fast");
         $('#tech-team').hide("slow");
         $('#workshop').hide("slow");
         $('#why').hide();
@@ -56,12 +59,13 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
-    $('#workshoplink').click(function(){
+    $('.workshoplink').click(function(){
       $('#title').hide("slow");
       $('#sponsors').hide("slow");
       $('#aboutus').hide("slow");
       $('#tech-team').hide("slow");
       $('#why').show();
+      $('.my-reg-button').hide("fast");
       $('#dashboard').hide();
       $('.button-collapse').sideNav('hide');
       $('#tevents').hide("slow");
@@ -76,12 +80,13 @@ $(document).ready(function () {
       $('#ntevn1').hide();
       $('#ntevn2').hide();
     });
-    $('#indexlink').click(function () {
+    $('.indexlink').click(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#workshop').hide("slow");
         $('#tech-team').hide();
+        $('.my-reg-button').show("fast");
         $('#dashboard').hide();
         $('.button-collapse').sideNav('hide');
         $('#title').show("slow");
@@ -96,11 +101,12 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
-    $('#sponsorslink').click(function () {
+    $('.sponsorslink').click(function () {
         $('#tevents').hide("slow");
         $('#title').hide("slow");
         $('#aboutus').hide("slow");
         $('#dashboard').hide();
+        $('.my-reg-button').hide("fast");
         $('#workshop').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
@@ -117,17 +123,17 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
-    $('#aboutlink').click(function () {
+    $('.aboutlink').click(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#title').hide("slow");
-        $('#tech-team').hide();
         $('#workshop').hide("slow");
-        $('#dashboard').hide();
+        $('.my-reg-button').hide("fast");
         $('.button-collapse').sideNav('hide');
-        $('#aboutus').fadeIn("slow");
+        $('#tech-team').hide("slow");
         $('#why').show();
-
+        $('#dashboard').hide("fast");
+        $('#aboutus').show("slow");
 
         $('#tevn1').hide();
         $('#tevn2').hide();
@@ -138,11 +144,12 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
-    $('#teamlink').click(function() {
+    $('.teamlink').click(function() {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#title').hide("slow");
         $('#workshop').hide("slow");
+        $('.my-reg-button').hide("fast");
         $('#aboutus').hide("slow");
         $('.button-collapse').sideNav('hide');
         $('#dashboard').hide();
@@ -159,9 +166,10 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
-    $('#dashboardlink').click(function(){
+    $('.dashboardlink').click(function(){
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
+        $('.my-reg-button').hide("fast");
         $('#title').hide("slow");
         $('#aboutus').hide("slow");
         $('#workshop').hide("slow");
@@ -180,7 +188,7 @@ $(document).ready(function () {
         $('#ntevn2').hide();
     });
 
-    $('#homelinkmobile').click(function(){
+/*    $('#homelinkmobile').click(function(){
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#tevents').hide("slow");
@@ -221,7 +229,7 @@ $(document).ready(function () {
         $('#ntevn1').hide();
         $('#ntevn2').hide();
     });
-    $('#workshoplinkmobile').click(function(){
+/*    $('#workshoplinkmobile').click(function(){
       $('#title').hide("slow");
       $('#sponsors').hide("slow");
       $('#aboutus').hide("slow");
@@ -338,7 +346,7 @@ $(document).ready(function () {
        $('#tech-team').hide("slow");
        $('#dashboard').show("slow");
        $('#why').show();
-       
+
        $('#tevn1').hide();
        $('#tevn2').hide();
        $('#tevn3').hide();
@@ -349,7 +357,7 @@ $(document).ready(function () {
        $('#ntevn2').hide();
 
     });
-
+*/
     $('#tevn1').hide();
     $('#tevn2').hide();
     $('#tevn3').hide();
