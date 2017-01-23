@@ -1010,7 +1010,7 @@ small{font-size:75%}
 @media only screen and (max-width: 360px){.flow-text{font-size:1.2rem}
 }
 .card-panel{transition:box-shadow .25s;padding:20px;margin:0.5rem 0 1rem 0;border-radius:2px;background-color:#fff}
-.card{position:relative;margin:0.5rem 0 1rem 0;background-color:#fff;transition:box-shadow .25s;border-radius:2px}
+.card{position:relative;margin:0.5rem 0 1rem 0;background-color:#fff;transition:box-shadow .25s;border-radius:2px;padding: 15px 15px 15px 15px;}
 .card .card-title{font-size:24px;font-weight:300}
 .card .card-title.activator{cursor:pointer}
 .card.small,.card.medium,.card.large{position:relative}
@@ -1613,4 +1613,3 @@ button.picker__today:focus,button.picker__clear:focus,button.picker__close:focus
 @media (min-height: 40.125em){.picker--time .picker__box{margin-bottom:5em}
 }
 
-�
