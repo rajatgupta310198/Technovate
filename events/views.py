@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from json import dump
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-
+from django.core.exceptions import ObjectDoesNotExist
 import hashlib
 from datetime import datetime as dt
 def index(request):
@@ -17,7 +17,7 @@ def index(request):
 
         return render(request,'index.html',{'full_name':user.get_full_name(),
         'phone_no':user.profile.get_phone_no(),
-        'institute':user.profile.get_Institute_Uni()}
+        'institute':user.profile.get_Institute_Uni(),'payment_to_be_paid': user.profile.payment_due()}
         )
     return render(request,'index.html')
 
@@ -70,6 +70,7 @@ def register(request):
         user.save()
         p = Profile(user=user)
         p.user=user
+        p.Name = user.get_full_name()
         p.Institute_Uni = request.POST['institute_uni']
         p.is_active = False
         p.PhoneNo = request.POST['phoneno']
@@ -151,8 +152,19 @@ def enrollTo(request):
                     break
 
             if has == False:
-                user.profile.payment_to_be_paid = user.profile.payment_to_be_paid + event.eventCost
+                #user.profile.payment_to_be_paid = user.profile.payment_to_be_paid + event.eventCost
+                """old_payment_due = user.profile.payment_due()
+                new_payment = event.eventCost
+                total_due = old_payment_due + new_payment
+                user.profile.payment_to_be_paid = total_due"""
+                if user.profile.payment_due() >0 or user.profile.payment_pay() > 0:
+                    pass
+
+                else:
+                    user.profile.payment_to_be_paid = event.eventCost
+
                 user.profile.events.add(event)
+                user.profile.save()
                 code = ev
                 html = render_to_string('email/email_event.html',{'code':code,'first_name':user.first_name,
                 'last_name':user.last_name,
@@ -227,9 +239,9 @@ def campusRe(request):
         C.Institute = request.POST['ins']
         email = request.POST['email']
         phone = request.POST['ph']
-        cam = CampusRepresantative.object.get(email=email)
-        cam2 = CampusRepresantative.object.get(Phone=phone)
-        if cam and cam2 is None:
+        try:
+            cam = CampusRepresantative.objects.get(email=email)
+        except ObjectDoesNotExist:
             C.email = request.POST['email']
             C.Phone  = request.POST['ph']
             C.save()
