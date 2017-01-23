@@ -14,37 +14,42 @@ $(document).ready(function () {
     $('#title').hide("fast");
     $('#tevents').show();
     $('#workshop').hide();
-
-    $('#homelink').click(function(){
+    $('.acc-desc').hide();
+    $('.homelink').click(function(){
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#tevents').hide("slow");
         $('#workshop').hide("slow");
+        $('.my-reg-button').show("fast");
         $('#tech-team').hide("slow");
+        $('#dashboard').hide();
         $('#why').show();
         $('.button-collapse').sideNav('hide');
         $('#title').show("slow");
-
-
 
         $('#tevn1').hide();
         $('#tevn2').hide();
         $('#tevn3').hide();
         $('#tevn4').hide();
         $('#tevn5').hide();
+        $('#tevn7').hide();
+        $('#tevn8').hide();
         $('#tevn6').hide();
         $('#ntevn1').hide();
         $('#ntevn2').hide();
+        $('#ntevn3').hide();
+        $('#ntevn4').hide("slow");
 
     });
 
-    $('#indexlink').click(function () {
+    $('.indexlink').click(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#aboutus').hide("slow");
         $('#workshop').hide("slow");
         $('#tech-team').hide();
         $('.button-collapse').sideNav('hide');
+        $('.my-reg-button').show("fast");
         $('#title').show("slow");
         $('#why').show();
 
@@ -54,14 +59,19 @@ $(document).ready(function () {
         $('#tevn4').hide();
         $('#tevn5').hide();
         $('#tevn6').hide();
-
+        $('#tevn7').hide();
+        $('#tevn8').hide();
+        
         $('#ntevn1').hide();
         $('#ntevn2').hide();
+        $('#ntevn3').hide();
+        $('#ntevn4').hide("slow");
     });
-    $('#sponsorslink').click(function () {
+    $('.sponsorslink').click(function () {
         $('#tevents').hide("slow");
         $('#title').hide("slow");
         $('#aboutus').hide("slow");
+        $('.my-reg-button').hide("fast");
         $('#tech-team').hide();
         $('#workshop').hide("slow");
         $('.button-collapse').sideNav('hide');
@@ -75,18 +85,23 @@ $(document).ready(function () {
         $('#tevn4').hide();
         $('#tevn5').hide();
         $('#tevn6').hide();
+        $('#tevn7').hide();
+        $('#tevn8').hide();
 
         $('#ntevn1').hide();
         $('#ntevn2').hide();
+        $('#ntevn3').hide();
+        $('#ntevn4').hide("slow");
     });
-    $('#aboutlink').click(function () {
+    $('.aboutlink').click(function () {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#title').hide("slow");
         $('#tech-team').hide();
+        $('.my-reg-button').hide("fast");
         $('.button-collapse').sideNav('hide');
         $('#workshop').hide("slow");
-        $('#aboutus').slideDown("slow");
+        $('#aboutus').show("slow");
         $('#why').show();
 
 
@@ -96,16 +111,21 @@ $(document).ready(function () {
         $('#tevn4').hide();
         $('#tevn5').hide();
         $('#tevn6').hide();
+        $('#tevn7').hide();
+        $('#tevn8').hide();
 
         $('#ntevn1').hide();
         $('#ntevn2').hide();
+        $('#ntevn3').hide();
+        $('#ntevn4').hide("slow");
     });
-    $('#teamlink').click(function() {
+    $('.teamlink').click(function() {
         $('#tevents').hide("slow");
         $('#sponsors').hide("slow");
         $('#title').hide("slow");
         $('#workshop').hide("slow");
         $('#aboutus').hide("slow");
+        $('.my-reg-button').hide("fast");
         $('.button-collapse').sideNav('hide');
         $('#tech-team').slideDown("slow");
         $('#why').show();
@@ -117,13 +137,18 @@ $(document).ready(function () {
         $('#tevn4').hide();
         $('#tevn5').hide();
         $('#tevn6').hide();
+        $('#tevn7').hide();
+        $('#tevn8').hide();
 
         $('#ntevn1').hide();
         $('#ntevn2').hide();
+        $('#ntevn3').hide();
+        $('#ntevn4').hide("slow");
     });
-    $('#techeventslink').click(function(){
+    $('.techeventslink').click(function(){
       $('#dashboard').hide("fast");
       $('#sponsors').hide("fast");
+      $('.my-reg-button').hide("fast");
       $('#workshop').hide("slow");
       $('#title').hide("fast");
       $('#aboutus').hide("fast");
@@ -138,13 +163,18 @@ $(document).ready(function () {
       $('#tevn4').hide();
       $('#tevn5').hide();
       $('#tevn6').hide();
+      $('#tevn7').hide();
+      $('#tevn8').hide();
 
       $('#ntevn1').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide();
+      $('#ntevn4').hide("slow");
     });
-    $('#workshoplink').click(function(){
+    $('.workshoplink').click(function(){
       $('#title').hide("slow");
       $('#sponsors').hide("slow");
+      $('.my-reg-button').hide("fast");
       $('#aboutus').hide("slow");
       $('#tech-team').hide("slow");
       $('#why').show();
@@ -159,174 +189,40 @@ $(document).ready(function () {
       $('#tevn4').hide();
       $('#tevn5').hide();
       $('#tevn6').hide();
+      $('#tevn7').hide();
+      $('#tevn8').hide();
+
       $('#ntevn1').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide();
+      $('#ntevn4').hide("slow");
     });
-    $('#homelinkmobile').click(function(){
-        $('#sponsors').hide("slow");
-        $('#aboutus').hide("slow");
-        $('#workshop').hide("slow");
-        $('#tevents').hide("slow");
-        $('#tech-team').hide();
-        $('.button-collapse').sideNav('hide');
-        $('#title').show("slow");
-        $('#why').show();
-
-        $('#tevn1').hide();
-        $('#tevn2').hide();
-        $('#tevn3').hide();
-        $('#tevn4').hide();
-        $('#tevn5').hide();
-        $('#tevn6').hide();
-
-        $('#ntevn1').hide();
-        $('#ntevn2').hide();
-
-    });
-    $('#techeventslinkmobile').click(function () {
-        $('#title').hide("slow");
-        $('#sponsors').hide("slow");
-        $('#aboutus').hide("slow");
-        $('#tech-team').hide("slow");
-        $('#workshop').hide("slow");
-        $('#why').show();
-        $('.button-collapse').sideNav('hide');
-        $('#tevents').show("slow");
-
-        $('#tevn1').hide();
-        $('#tevn2').hide();
-        $('#tevn3').hide();
-        $('#tevn4').hide();
-        $('#tevn5').hide();
-        $('#tevn6').hide();
-
-        $('#ntevn1').hide();
-        $('#ntevn2').hide();
-    });
-    $('#workshoplinkmobile').click(function(){
-      $('#title').hide("slow");
-      $('#sponsors').hide("slow");
-      $('#aboutus').hide("slow");
-      $('#tech-team').hide("slow");
-      $('#why').show();
-      $('#dashboard').hide();
-      $('.button-collapse').sideNav('hide');
-      $('#tevents').hide("slow");
-      $('#workshop').show("slow");
-
-      $('#tevn1').hide();
-      $('#tevn2').hide();
-      $('#tevn3').hide();
-      $('#tevn4').hide();
-      $('#tevn5').hide();
-      $('#tevn6').hide();
-      $('#ntevn1').hide();
-      $('#ntevn2').hide();
-    });
-    $('#indexlinkmobile').click(function () {
-        $('#tevents').hide("slow");
-        $('#sponsors').hide("slow");
-        $('#workshop').hide("slow");
-        $('#aboutus').hide("slow");
-        $('#tech-team').hide();
-        $('.button-collapse').sideNav('hide');
-        $('#title').show("slow");
-        $('#why').show();
-
-        $('#tevn1').hide();
-        $('#tevn2').hide();
-        $('#tevn3').hide();
-        $('#tevn4').hide();
-        $('#tevn5').hide();
-        $('#tevn6').hide();
-
-        $('#ntevn1').hide();
-        $('#ntevn2').hide();
-    });
-    $('#sponsorslinkmobile').click(function () {
-        $('#tevents').hide("slow");
-        $('#title').hide("slow");
-        $('#aboutus').hide("slow");
-        $('#workshop').hide("slow");
-        $('#tech-team').hide();
-        $('.button-collapse').sideNav('hide');
-        $('#sponsors').slideToggle("slow");
-        $('#why').show();
-
-
-        $('#tevn1').hide();
-        $('#tevn2').hide();
-        $('#tevn3').hide();
-        $('#tevn4').hide();
-        $('#tevn5').hide();
-        $('#tevn6').hide();
-
-        $('#ntevn1').hide();
-        $('#ntevn2').hide();
-
-
-    });
-    $('#aboutlinkmobile').click(function () {
-        $('#tevents').hide("slow");
-        $('#sponsors').hide("slow");
-        $('#workshop').hide("slow");
-        $('#title').hide("slow");
-        $('#tech-team').hide();
-        $('.button-collapse').sideNav('hide');
-        $('#aboutus').slideDown("slow");
-        $('#why').show();
-
-
-        $('#tevn1').hide();
-        $('#tevn2').hide();
-        $('#tevn3').hide();
-        $('#tevn4').hide();
-        $('#tevn5').hide();
-        $('#tevn6').hide();
-
-        $('#ntevn1').hide();
-        $('#ntevn2').hide();
-
-
-    });
-    $('#teamlinkmobile').click(function() {
-        $('#tevents').hide("slow");
-        $('#sponsors').hide("slow");
-        $('#title').hide("slow");
-        $('#aboutus').hide("slow");
-        $('#workshop').hide("slow");
-        $('.button-collapse').sideNav('hide');
-        $('#tech-team').slideDown("slow");
-
-
-        $('#tevn1').hide();
-        $('#tevn2').hide();
-        $('#tevn3').hide();
-        $('#tevn4').hide();
-        $('#tevn5').hide();
-        $('#tevn6').hide();
-
-        $('#ntevn1').hide();
-        $('#ntevn2').hide();
-    });
-
-    $('#tevn1').hide();
+    $('#tevn1').show();
     $('#tevn2').hide();
     $('#tevn3').hide();
     $('#tevn4').hide();
     $('#tevn5').hide();
     $('#tevn6').hide();
+    $('#tevn7').hide();
+    $('#tevn8').hide();
     $('#ntevn1').hide();
     $('#ntevn2').hide();
+    $('#ntevn3').hide();
+    $('#ntevn4').hide("slow");
 
     $('#tevnl1').click(function() {
       $('#tevn2').hide("slow");
       $('#tevn3').hide("slow");
       $('#tevn4').hide("slow");
       $('#tevn6').hide("slow");
+      $('#tevn8').hide();
       $('#tevn5').hide("slow");
+      $('#tevn7').hide();
+
       $('#ntevn1').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
 
       $('#tevn1').show("slow");
     });
@@ -334,10 +230,15 @@ $(document).ready(function () {
       $('#tevn1').hide("slow");
       $('#tevn3').hide("slow");
       $('#tevn4').hide("slow");
+      $('#tevn8').hide();
       $('#tevn5').hide("slow");
       $('#tevn6').hide("slow");
       $('#ntevn1').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
+      $('#tevn7').hide();
+
       $('#tevn2').show("slow");
 
     });
@@ -347,8 +248,12 @@ $(document).ready(function () {
       $('#tevn4').hide("slow");
       $('#tevn5').hide("slow");
       $('#tevn6').hide("slow");
+      $('#tevn8').hide();
       $('#ntevn1').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#tevn7').hide();
+      $('#ntevn4').hide("slow");
 
       $('#tevn3').show("slow");
     });
@@ -359,7 +264,11 @@ $(document).ready(function () {
       $('#tevn5').hide("slow");
       $('#tevn6').hide("slow");
       $('#ntevn1').hide();
+      $('#tevn8').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
+      $('#tevn7').hide();
 
       $('#tevn4').show("slow");
     });
@@ -369,8 +278,12 @@ $(document).ready(function () {
       $('#tevn3').hide("slow");
       $('#tevn4').hide("slow");
       $('#tevn6').hide("slow");
+      $('#tevn8').hide();
       $('#ntevn1').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#tevn7').hide();
+      $('#ntevn4').hide("slow");
 
       $('#tevn5').show("slow");
     });
@@ -379,21 +292,59 @@ $(document).ready(function () {
       $('#tevn2').hide("slow");
       $('#tevn3').hide("slow");
       $('#tevn4').hide("slow");
+      $('#tevn8').hide();
       $('#tevn5').hide("slow");
       $('#ntevn1').hide();
+      $('#tevn7').hide();
       $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
 
       $('#tevn6').show("slow");
+    });
+    $('#tevnl7').click(function(){
+      $('#tevn1').hide("slow");
+      $('#tevn2').hide("slow");
+      $('#tevn3').hide("slow");
+      $('#tevn8').hide();
+      $('#tevn4').hide("slow");
+      $('#tevn5').hide("slow");
+      $('#ntevn1').hide();
+      $('#tevn6').hide();
+      $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
+
+      $('#tevn7').show("slow");
+    });
+    $('#tevnl8').click(function(){
+      $('#tevn1').hide("slow");
+      $('#tevn2').hide("slow");
+      $('#tevn3').hide("slow");
+      $('#tevn7').hide();
+      $('#tevn4').hide("slow");
+      $('#tevn5').hide("slow");
+      $('#ntevn1').hide();
+      $('#tevn6').hide();
+      $('#ntevn2').hide();
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
+
+      $('#tevn8').show("slow");
     });
     $('#ntevnl1').click(function(){
       $('#tevn1').hide("slow");
       $('#tevn2').hide("slow");
       $('#tevn3').hide("slow");
+      $('#tevn8').hide();
       $('#tevn4').hide("slow");
       $('#tevn5').hide("slow");
       $('#tevn6').hide("slow");
-
+      $('#tevn7').hide();
+      $('#ntevn3').hide("slow");
       $('#ntevn2').hide("slow");
+      $('#ntevn4').hide("slow");
+
       $('#ntevn1').show("slow");
     });
     $('#ntevnl2').click(function(){
@@ -402,10 +353,44 @@ $(document).ready(function () {
       $('#tevn3').hide("slow");
       $('#tevn4').hide("slow");
       $('#tevn5').hide("slow");
+      $('#tevn7').hide();
+      $('#tevn8').hide();
       $('#tevn6').hide("slow");
       $('#ntevn1').hide("slow");
+      $('#ntevn3').hide("slow");
+      $('#ntevn4').hide("slow");
 
       $('#ntevn2').show("slow");
+    });
+    $('#ntevnl3').click(function(){
+      $('#tevn1').hide("slow");
+      $('#tevn2').hide("slow");
+      $('#tevn3').hide("slow");
+      $('#tevn8').hide();
+      $('#tevn4').hide("slow");
+      $('#tevn5').hide("slow");
+      $('#tevn6').hide("slow");
+      $('#tevn7').hide();
+      $('#ntevn1').hide("slow");
+      $('#ntevn2').hide("slow");
+      $('#ntevn4').hide("slow");
+
+      $('#ntevn3').show("slow");
+    });
+    $('#ntevnl4').click(function(){
+      $('#tevn1').hide("slow");
+      $('#tevn2').hide("slow");
+      $('#tevn3').hide("slow");
+      $('#tevn4').hide("slow");
+      $('#tevn5').hide("slow");
+      $('#tevn8').hide();
+      $('#tevn6').hide("slow");
+      $('#ntevn1').hide("slow");
+      $('#tevn7').hide();
+      $('#ntevn2').hide("slow");
+      $('#ntevn3').hide("slow");
+
+      $('#ntevn4').show("slow");
     });
 
 
