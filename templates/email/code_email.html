@@ -10,7 +10,9 @@
 <body>
 <strong><h4>{{first_name }} {{last_name}}</h4></strong>
 {% if request.user.profile.is_active %}
-  {{code}} <br>
+  {{code}}
+   <br>
+
 {% else %}
 <p>Thank You for registering to technovate. In order to activate your account you need to verify this email. Just copy and paste
  the code in your email.
@@ -20,7 +22,7 @@ Your Code :<strong>{{code}}</strong>
 <p>
   {% endif %}
 With Regards <br>
-Technovate <br>
+Team Technovate <br>
 
 <p>For any other querries email us at technovate.iiitnr@gmail.com or technovate@iiitnr.edu.in</p>
 </p>
