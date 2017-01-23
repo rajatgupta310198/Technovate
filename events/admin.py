@@ -2,7 +2,18 @@ from django.contrib import admin
 from events.models import Events,Profile,CampusRepresantative
 # Register your models here.
 
+class EventAdmin(admin.ModelAdmin):
+	model = Events
+	list_display  = ('EventName' ,'EventDescription','eventCost')
 
-admin.site.register(Events)
-admin.site.register(Profile)
-admin.site.register(CampusRepresantative)
+class ProfileAdmin(admin.ModelAdmin):
+	model = Profile
+	list_display = ('Name','PhoneNo','Institute_Uni')
+
+class CampusRepresentativeAdmmin(admin.ModelAdmin):
+	model = CampusRepresantative
+	list_display = ('Name','Phone','email','Institute')
+
+admin.site.register(Events,EventAdmin)
+admin.site.register(Profile,ProfileAdmin)
+admin.site.register(CampusRepresantative,CampusRepresentativeAdmmin)	
