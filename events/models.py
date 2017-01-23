@@ -26,6 +26,7 @@ class Events(models.Model):
 #Table for participants registering for event in Technovate
 class Profile(models.Model):
     user = models.OneToOneField(User)
+    Name = models.CharField(max_length=100,blank=True)
     events = models.ManyToManyField(Events,blank=True)
     PhoneNo = models.CharField(max_length=10)
     Institute_Uni = models.CharField(max_length=100)
@@ -50,6 +51,11 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.get_full_name() + ' ' + self.Institute_Uni
 
+    def payment_due(self):
+        return self.payment_to_be_paid
+
+    def payment_pay(self):
+        return self.payment_paid
 
     # in progress
     class Admin:
